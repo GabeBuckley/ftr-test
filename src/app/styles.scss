@@ -2,10 +2,22 @@ $header-height: 4rem;
 $footer-height: 2rem;
 $bg-colour-dark: #222222;
 $fg-colour-light: #eee;
+$panel-colour: rgba(34, 34, 34, 0.8);
+$bright-green: #90CE19;
 body {
     margin: 0;
     padding: 0;
     font-family: Roboto, sans-serif;
+    color: $fg-colour-light;
+    a {
+        color: adjust-color($color: $fg-colour-light, $lightness: -20%);
+        text-decoration: none;
+        transition: all 0.2s;
+        &:hover {
+            color: $fg-colour-light;
+            text-decoration: underline;
+        }
+    }
     header {
         position: fixed;
         top: 0;
@@ -26,10 +38,50 @@ body {
         bottom: $footer-height;
         left: 0;
         right: 0;
-        background-image: linear-gradient(0deg, rgba(34, 34, 34, 0.8) 0%, rgba(34, 34, 34, 0.8) 100%), url(../assets/aloe.jpg);
+        display: flex;
+        justify-content: space-around;
+        height: calc(100% - $header-height - $footer-height);
+        align-items: stretch;
+        background-image: linear-gradient(0deg, $panel-colour 0%, $panel-colour 100%), url(../assets/aloe.jpg);
         background-size: cover;
         background-position: center center;
         background-attachment: fixed;
+        aside {
+            flex: 1;
+            padding: 0.75rem;
+            margin: 0 0.5rem;
+            &>div {
+                height: 95%;
+                background-color: $panel-colour;
+                padding: 0.5rem;
+                border-radius: 0.25rem;
+                box-shadow: 0 1px 3px 1px rgba(60, 64, 67, .2), 0 2px 8px 4px rgba(60, 64, 67, .1);
+                overflow-y: auto;
+            }
+        }
+        section {
+            flex: 2;
+            padding: 0.75rem;
+            margin: 0 0.5rem;
+            &>div {
+                background-color: $panel-colour;
+                padding: 0.5rem;
+                border-radius: 0.25rem;
+                box-shadow: 0 1px 3px 1px rgba(60, 64, 67, .2), 0 2px 8px 4px rgba(60, 64, 67, .1);
+                input[type="number"] {
+                    width: 80%;
+                    background-color: transparent;
+                    color: $fg-colour-light;
+                    border: 0.125rem solid $fg-colour-light;
+                    border-radius: 0.25rem;
+                    padding: 0.75rem;
+                    font-size: 1rem;
+                    &:focus {
+                        outline: 0.0625rem solid $bright-green;
+                    }
+                }
+            }
+        }
     }
     footer {
         position: fixed;
@@ -42,14 +94,33 @@ body {
         color: $fg-colour-light;
         text-align: center;
         font-size: 0.75rem;
-        a {
-            color: adjust-color($color: $fg-colour-light, $lightness: -20%);
-            text-decoration: none;
-            transition: all 0.2s;
-            &:hover {
-                color: $fg-colour-light;
-                text-decoration: underline;
-            }
-        }
+    }
+    div.fib {
+        color: $bright-green;
+        font-size: 1rem;
+        position: fixed;
+        top: 35%;
+        width: 100%;
+        z-index: 500;
+        text-align: center;
+        font-weight: bold;
+        text-shadow: 0.125rem 0.125rem 0.125rem #000000FF;
+        animation-name: flying-fib;
+        animation-duration: 3s;
+    }
+}
+
+@keyframes flying-fib {
+    from {
+        top: 35%;
+        font-size: 1rem;
+        opacity: 1;
+        text-shadow: 0.125rem 0.125rem 0.125rem #000000FF;
+    }
+    to {
+        top: -5%;
+        font-size: 40rem;
+        opacity: 0;
+        text-shadow: 5rem 5rem 5rem #000000FF;
     }
 }

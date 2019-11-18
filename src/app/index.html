@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    <script src="https://kit.fontawesome.com/a428dba54a.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 </head>
 
@@ -10,21 +11,51 @@
     </header>
     <main>
         <aside>
-            <h2>Menu</h2>
-            <nav>
-                <ul>
-                    <li>Reset fibbr</li>
-                    <li>Help</li>
-                </ul>
-            </nav>
+            <div>
+                <h2>Menu</h2>
+                <nav>
+                    <ul>
+                        <li>Reset fibbr</li>
+                        <li>Help</li>
+                    </ul>
+                </nav>
+            </div>
         </aside>
-        <section></section>
+        <section>
+            <div>
+                <article class="interval">
+                    <h3>First things first:</h3>
+                    <p>Please enter in the field below, the number of seconds (between 1 and 60) that you would like me to pause for between showing you the list of entered numbers.</p>
+                    <p>
+                        <input id="seconds" type="number" min="1" value="15" max="60" />
+                    </p>
+                </article>
+                <article class="number-entry">
+
+                </article>
+                <article class="display">
+
+                </article>
+                <article class="controls">
+                    <i class="far fa-pause-circle"></i>
+                </article>
+            </div>
+        </section>
         <aside>
             <div id="help_block">
                 <h2>Help</h2>
                 <p>
                     Welcome to fibbr, an app that determines if an entered number is one of the first 1000 <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci numbers</a>.
-
+                </p>
+                <p>
+                    Initially you will be asked to set a timer interval. This interval governs the length of time between display updates. You can halt and resume the timer at any point during the demonstration.
+                </p>
+                <p>
+                    From there, you will be asked to enter a sequence of positive whole integers (numbers). If you enter a number that is part of the Fibonacci sequence, the word FIB will appear. If the number you entered is not part of the Fibonacci sequence, then the word
+                    FIB will not appear.
+                </p>
+                <p>
+                    The numbers you have entered into the system will be displayed on screen according to the interval you set up at the start.
                 </p>
             </div>
         </aside>
