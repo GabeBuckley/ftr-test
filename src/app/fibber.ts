@@ -17,8 +17,11 @@ class FibberUI extends EventTarget  {
     _numberInput: HTMLInputElement;
     _enterButton: HTMLButtonElement;
 
-
+    _controlPanel: HTMLDivElement;
     _displayPanel: HTMLDivElement;
+
+    _quitButton: HTMLButtonElement;
+    _byePanel: HTMLDivElement;
 
 
     constructor() {
@@ -52,8 +55,14 @@ class FibberUI extends EventTarget  {
             this._numberInput.focus();
         });
 
-        this.addEventListener("fibfound", ()=> {
+        this.addEventListener("fibfound", () => {
             this.sayFib();
+        });
+
+        this.addEventListener("fibbrquit", () => {
+            this._entryPanel.classList.add("hidden");
+            this._controlPanel.classList.add("hidden");
+            this._byePanel.classList.remove("hidden")
         });
 
     }
@@ -95,6 +104,15 @@ class FibberUI extends EventTarget  {
             }
         });
 
+        this._controlPanel = document.querySelector("#controls");
+        this._quitButton = document.querySelector("#quit_fibbr");
+        this._quitButton.addEventListener("click", (evt: Event) => {
+            if(this.fibber) {
+                this.fibber.quit();
+                this.displayNumbers();
+            }
+        });
+        this._byePanel = document.querySelector("#goodbye");
 
         this._secondsInput.focus();
     }
@@ -224,6 +242,12 @@ export class Fibber {
 
     public testMe = () => {
         console.log(this.test);
+    }
+
+    public quit = () => {
+        this._timerRunning = false;
+        clearInterval(this.interval);
+        this.ui.dispatchEvent(new CustomEvent("fibbrquit"));
     }
 
     public checkNumber = (intTest: number) => {
