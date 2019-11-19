@@ -4,11 +4,14 @@ $bg-colour-dark: #222222;
 $fg-colour-light: #eee;
 $panel-colour: rgba(34, 34, 34, 0.8);
 $bright-green: #90CE19;
+$mid-blue: #1990CE;
+$bright-fuschia: #CE1990;
 body {
     margin: 0;
     padding: 0;
     font-family: Roboto, sans-serif;
     color: $fg-colour-light;
+    z-index: 0;
     a {
         color: adjust-color($color: $fg-colour-light, $lightness: -20%);
         text-decoration: none;
@@ -69,7 +72,7 @@ body {
                 border-radius: 0.25rem;
                 box-shadow: 0 1px 3px 1px rgba(60, 64, 67, .2), 0 2px 8px 4px rgba(60, 64, 67, .1);
                 input[type="number"] {
-                    width: 80%;
+                    width: 70%;
                     background-color: transparent;
                     color: $fg-colour-light;
                     border: 0.125rem solid $fg-colour-light;
@@ -78,6 +81,61 @@ body {
                     font-size: 1rem;
                     &:focus {
                         outline: 0.0625rem solid $bright-green;
+                    }
+                }
+                button {
+                    background-color: transparent;
+                    color: $fg-colour-light;
+                    border: 0.125rem solid $fg-colour-light;
+                    border-radius: 0.25rem;
+                    padding: 0.75rem;
+                    font-size: 1rem;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                    &:focus {
+                        outline: 0.0625rem solid $bright-green;
+                    }
+                    &:hover {
+                        background-color: $panel-colour;
+                        box-shadow: 0 1px 3px 1px rgba(60, 64, 67, .7), 0 2px 8px 4px rgba(60, 64, 67, .6);
+                    }
+                }
+                .number-display {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    margin: 0.75rem;
+                    padding: 0.5rem;
+                    border: 0.125rem dashed $fg-colour-light;
+                    min-height: 10rem;
+                    span {
+                        margin: 0.5rem;
+                        padding: 0.5rem;
+                        border-radius: 50%;
+                        position: relative;
+                        background-color: $mid-blue;
+                        border: 0.125rem solid $fg-colour-light;
+                        font-size: 1rem;
+                        line-height: 3rem;
+                        max-height: 3rem;
+                        width: 3rem;
+                        text-align: center;
+                        font-weight: bold;
+                        em {
+                            position: absolute;
+                            top: -1rem;
+                            right: -0.75rem;
+                            padding: 0.25rem;
+                            font-size: 0.75rem;
+                            line-height: 2rem;
+                            max-height: 2rem;
+                            width: 2rem;
+                            background-color: $bright-fuschia;
+                            border-radius: 50%;
+                            box-shadow: 0 1px 3px 1px rgba(60, 64, 67, .7), 0 2px 8px 4px rgba(60, 64, 67, .6);
+                            text-align: center;
+                            font-weight: normal;
+                        }
                     }
                 }
             }
@@ -108,6 +166,28 @@ body {
         animation-name: flying-fib;
         animation-duration: 3s;
     }
+    div.ui-message {
+        background-color: $panel-colour;
+        font-size: 1rem;
+        position: fixed;
+        bottom: 5rem;
+        right: 3rem;
+        z-index: 300;
+        min-width: 15rem;
+        text-align: center;
+        padding: 1rem;
+        border: 0.125rem solid $fg-colour-light;
+        color: $fg-colour-light;
+        border-radius: 0.5rem;
+        opacity: 1;
+        animation-name: message-fade;
+        animation-delay: 5s;
+        animation-duration: 3s;
+        box-shadow: 0 1px 3px 1px rgba(60, 64, 67, .2), 0 2px 8px 4px rgba(60, 64, 67, .1);
+    }
+    .hidden {
+        display: none !important;
+    }
 }
 
 @keyframes flying-fib {
@@ -122,5 +202,16 @@ body {
         font-size: 40rem;
         opacity: 0;
         text-shadow: 5rem 5rem 5rem #000000FF;
+    }
+}
+
+@keyframes message-fade {
+    from {
+        bottom: 5rem;
+        opacity: 1;
+    }
+    to {
+        bottom: 120%;
+        opacity: 0;
     }
 }

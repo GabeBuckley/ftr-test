@@ -10,35 +10,34 @@
         <h1>fibbr</h1>
     </header>
     <main>
-        <aside>
-            <div>
-                <h2>Menu</h2>
-                <nav>
-                    <ul>
-                        <li>Reset fibbr</li>
-                        <li>Help</li>
-                    </ul>
-                </nav>
-            </div>
-        </aside>
         <section>
             <div>
-                <article class="interval">
+                <article id="interval">
                     <h3>First things first:</h3>
                     <p>Please enter in the field below, the number of seconds (between 1 and 60) that you would like me to pause for between showing you the list of entered numbers.</p>
                     <p>
-                        <input id="seconds" type="number" min="1" value="15" max="60" />
+                        <input id="timer_seconds" type="number" min="1" value="15" max="60" />
+                        <button id="set_timer_button"><i class="fas fa-stopwatch"></i> Set timer</button>
                     </p>
                 </article>
-                <article class="number-entry">
+                <article id="number_entry" class="hidden">
+                    <h3>Now we're fibbin'</h3>
+                    <p id="user_prompt">Excellent, please enter the first number in the field below:</p>
+                    <p>
+                        <input id="entered_number" type="number" min="1" max="60" />
+                        <button id="enter_number_button"><i class="fas fa-sign-in-alt"></i> Go!</button>
+                    </p>
+                </article>
+                <article id="controls">
+                    <button id="pause_timer"><i class="far fa-pause-circle"></i> Pause timer</button>
+                    <button id="resume_timer"><i class="far fa-play-circle"></i> Resume timer</button>
+                    <button id="quit_fibbr"><i class="far fa-times-circle"></i> Quit fibbr</button>
+                </article>
+                <article id="display">
+                    <h3>Entered numbers <sup>(with frequencies)</sup>:</h3>
+                    <div id="display_screen" class="number-display"></div>
+                </article>
 
-                </article>
-                <article class="display">
-
-                </article>
-                <article class="controls">
-                    <i class="far fa-pause-circle"></i>
-                </article>
             </div>
         </section>
         <aside>
@@ -55,7 +54,7 @@
                     FIB will not appear.
                 </p>
                 <p>
-                    The numbers you have entered into the system will be displayed on screen according to the interval you set up at the start.
+                    The numbers you have entered into the system will be updated on screen according to the interval you set up at the start. They will be ordered by the number of times you have entered that particular number (the frequency), in descending order.
                 </p>
             </div>
         </aside>
