@@ -9,6 +9,8 @@ const path = require('path');
 
 module.exports = {
     entry: './src/app/main.ts',
+    devtool: 'inline-source-map',
+    target: 'web',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'fibber.bundle.js'
@@ -20,7 +22,15 @@ module.exports = {
     module: {
         rules: [
             // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
-            { test: /\.tsx?$/, loader: "ts-loader" },
+            {
+                test: /\.tsx?$/,
+                loader: 'awesome-typescript-loader',
+                options: {
+                    modules: true,
+                    sourceMap: true
+                },
+                exclude: path.resolve(__dirname, '/node_modules')
+            },
             {
                 test: /\.module\.s(a|c)ss$/,
                 loader: [

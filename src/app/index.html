@@ -14,7 +14,7 @@
             <div>
                 <article id="interval">
                     <h3>First things first:</h3>
-                    <p>Please enter in the field below, the number of seconds (between 1 and 60) that you would like me to pause for between showing you the list of entered numbers.</p>
+                    <p>Please enter in the field below, the number of seconds (between 1 and 60) that you would like me to pause for between showing you the list of entered numbers. Then click the 'Set timer' button.</p>
                     <p>
                         <input id="timer_seconds" type="number" min="1" value="15" max="60" />
                         <button id="set_timer_button"><i class="fas fa-stopwatch"></i> Set timer</button>
@@ -22,7 +22,7 @@
                 </article>
                 <article id="number_entry" class="hidden">
                     <h3>Now we're fibbin'</h3>
-                    <p id="user_prompt">Excellent, please enter the first number in the field below:</p>
+                    <p id="user_prompt">Excellent, please enter the first number you'd like to test in the field below and click the 'Go!' button.</p>
                     <p>
                         <input id="entered_number" type="number" min="1" max="60" />
                         <button id="enter_number_button"><i class="fas fa-sign-in-alt"></i> Go!</button>
@@ -54,18 +54,19 @@
                     Initially you will be asked to set a timer interval. This interval governs the length of time between display updates. You can halt and resume the timer at any point during the demonstration.
                 </p>
                 <p>
-                    From there, you will be asked to enter a sequence of positive whole integers (numbers). If you enter a number that is part of the Fibonacci sequence, the word FIB will appear. If the number you entered is not part of the Fibonacci sequence, then the word
-                    FIB will not appear.
+                    From there, you will be asked to enter a sequence of positive whole integers (that is to say... numbers). If you enter a number that is part of the Fibonacci sequence, the word FIB will appear. If the number you entered is not part of the Fibonacci sequence,
+                    then the word FIB will not appear.
                 </p>
                 <p>
                     The numbers you have entered into the system will be updated on screen according to the interval you set up at the start. They will be ordered by the number of times you have entered that particular number (the frequency), in descending order.
                 </p>
+                <p>To end the demonstration you can either hit the Quit button, close your browser window, or dunk your laptop in the bath. We recommend the Quit button.</p>
             </div>
         </aside>
     </main>
 
     <footer>
-        Prepared by: Gabe Buckley ( <a href="mailto:gb@gabrielbuckley.com">gb@gabrielbuckley.com</a> 19-11-2019 )
+        Prepared by: Gabe Buckley ( <a href="mailto:gb@gabrielbuckley.com">gb@gabrielbuckley.com</a> 20-11-2019 )
     </footer>
 </body>
 

@@ -1,5 +1,5 @@
 
-import "./styles";
+import "./styles.scss";
 import { Fibber } from "./fibber";
 
 window.addEventListener("load", (evt: Event) => {
