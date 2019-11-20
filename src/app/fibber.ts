@@ -95,6 +95,11 @@ export class Fibber {
         this.ui.dispatchEvent(new CustomEvent("timerresumed"));
     }
 
+    // reflect the status of the timer externally
+    public get isTimerRunning(): boolean {
+        return this._timerRunning;
+    }
+
     // run once every second when the timer is running
     tick = () => {
         if(this._timerRunning) {

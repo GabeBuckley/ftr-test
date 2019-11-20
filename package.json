@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "FTR Platform Developer Coding Test Response",
     "scripts": {
-        "serve": "http-server ./dist",
+        "serve": "http-server ./dist -p 1123",
         "test": "karma start karma.conf.js",
         "build": "npx webpack"
     },
